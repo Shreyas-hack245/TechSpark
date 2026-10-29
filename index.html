@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TechSpark 2026 | Department of CSE Tech Fest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <a class="logo" href="#top">TechSpark 2026</a>
+    <nav>
+      <ul>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#schedule">Schedule</a></li>
+        <li><a href="#register">Register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero with live countdown (JS feature 1) -->
+    <section class="hero">
+      <h1>Build it. Break it. Ship it.</h1>
+      <p class="lead">A one-day technical fest by the Department of Computer Science &amp; Engineering, with coding, web design and quiz contests.</p>
+      <p class="date-line"><strong>20 November 2026</strong>, Seminar Hall, 9:00 AM</p>
+
+      <div class="countdown" aria-live="polite">
+        <div><span id="days">0</span><small>days</small></div>
+        <div><span id="hours">0</span><small>hours</small></div>
+        <div><span id="minutes">0</span><small>minutes</small></div>
+        <div><span id="seconds">0</span><small>seconds</small></div>
+      </div>
+      <a class="btn" href="#register">Register now</a>
+    </section>
+
+    <!-- Events with category filter (JS feature 2) -->
+    <section id="events" class="section">
+      <h2>Events</h2>
+      <div class="filters" role="group" aria-label="Filter events">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="coding">Coding</button>
+        <button class="filter" data-filter="design">Design</button>
+        <button class="filter" data-filter="quiz">Quiz</button>
+      </div>
+
+      <div class="event-grid" id="eventGrid">
+        <article class="card" data-category="coding">
+          <h3>CodeStorm</h3>
+          <p>Solve 5 problems in 90 minutes. Individual round, any language.</p>
+          <p class="fee">Fee: Rs. 100</p>
+        </article>
+        <article class="card" data-category="design">
+          <h3>Pixel Perfect</h3>
+          <p>Recreate a given web page using only HTML and CSS.</p>
+          <p class="fee">Fee: Rs. 150</p>
+        </article>
+        <article class="card" data-category="quiz">
+          <h3>Tech Quiz</h3>
+          <p>Teams of two answer questions on computing history and trends.</p>
+          <p class="fee">Fee: Rs. 80</p>
+        </article>
+        <article class="card" data-category="coding">
+          <h3>Bug Hunt</h3>
+          <p>Find and fix errors in broken JavaScript programs, fastest team wins.</p>
+          <p class="fee">Fee: Rs. 120</p>
+        </article>
+      </div>
+      <p id="eventCount" class="muted"></p>
+    </section>
+
+    <!-- Schedule table -->
+    <section id="schedule" class="section alt">
+      <h2>Schedule</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>Timings for 20 November 2026</caption>
+          <thead>
+            <tr><th>Time</th><th>Event</th><th>Venue</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>9:00 AM</td><td>Inauguration</td><td>Seminar Hall</td></tr>
+            <tr><td>10:00 AM</td><td>CodeStorm</td><td>Lab 1</td></tr>
+            <tr><td>11:30 AM</td><td>Pixel Perfect</td><td>Lab 2</td></tr>
+            <tr><td>1:30 PM</td><td>Tech Quiz</td><td>Seminar Hall</td></tr>
+            <tr><td>3:00 PM</td><td>Bug Hunt</td><td>Lab 1</td></tr>
+            <tr><td>4:30 PM</td><td>Prize distribution</td><td>Seminar Hall</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Registration form with validation and fee calculator -->
+    <section id="register" class="section">
+      <h2>Register</h2>
+      <form id="regForm" novalidate>
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" placeholder="e.g. Anita Rao">
+          <span class="error" id="nameError"></span>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com">
+          <span class="error" id="emailError"></span>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone (10 digits)</label>
+          <input type="tel" id="phone" name="phone" placeholder="9876543210">
+          <span class="error" id="phoneError"></span>
+        </div>
+
+        <div class="field">
+          <label for="year">Year of study</label>
+          <select id="year" name="year">
+            <option value="">Select year</option>
+            <option>1st year</option>
+            <option>2nd year</option>
+            <option>3rd year</option>
+            <option>4th year</option>
+          </select>
+          <span class="error" id="yearError"></span>
+        </div>
+
+        <fieldset class="field">
+          <legend>Choose events</legend>
+          <label class="check"><input type="checkbox" name="event" value="100"> CodeStorm (Rs. 100)</label>
+          <label class="check"><input type="checkbox" name="event" value="150"> Pixel Perfect (Rs. 150)</label>
+          <label class="check"><input type="checkbox" name="event" value="80"> Tech Quiz (Rs. 80)</label>
+          <label class="check"><input type="checkbox" name="event" value="120"> Bug Hunt (Rs. 120)</label>
+          <span class="error" id="eventError"></span>
+        </fieldset>
+
+        <p class="total">Total fee: <strong id="total">Rs. 0</strong></p>
+        <button type="submit" class="btn">Submit registration</button>
+        <button type="reset" class="btn ghost" id="resetBtn">Clear</button>
+      </form>
+
+      <div id="confirmation" class="confirmation" hidden></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Department of Computer Science &amp; Engineering. Contact: techspark@example.edu</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
